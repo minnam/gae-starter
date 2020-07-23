@@ -1,14 +1,14 @@
 # Prerequisite
-  Prepare 3 branches; master, staging, develop
+1. Prepare 3 branches; master, staging, develop
 
 # Basic Deployment Setup
 1. Install `gcloud`, run `npm install -g gcloud`
 1. Create a project by running `gcloud app create` or in this link https://console.cloud.google.com/projectcreate
-1. Copy and paste config-files into the project repo and change PROJECT_NAME to your project name
+1. Copy and paste config-files into the project repo and change PROJECT_NAME to your project name (modify your original package.json)
 1. Run `gcloud app deploy`
 
 ## Details
-- This setting creates 2 instances. Production and Staging. We assume that project repo will have 3 major repo; `master`, `staging`, `develop`. Every new feature will be merged to develop and then there will be a pull request from `develop` to `staging`. When there is an activity with `staging` repo, the build will be triggered in GAE. When `staging` instance works well, there can be a pull request from `staging` to `master` which triggers build to the production instance.
+- This setting creates 2 instances. Production and Staging. Every new feature will be merged to develop and then there will be a pull request from `develop` to `staging`. When there is an activity with `staging` repo, the build will be triggered in GAE. When `staging` instance works well, there can be a pull request from `staging` to `master` which triggers build to the production instance.
 
 
 # Build Trigger Setup for Staging
