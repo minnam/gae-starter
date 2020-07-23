@@ -1,0 +1,12 @@
+steps:
+- name: node:10.15.3
+  entrypoint: npm
+  args: ["install"]
+- name: node:10.15.3
+  entrypoint: npm
+  args: ["run", "create-env"]
+  env:
+    - 'ENVS=some_env_string'
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['app', 'deploy', './app.yaml']
+timeout: 1800s
